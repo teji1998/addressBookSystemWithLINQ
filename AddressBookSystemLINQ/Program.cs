@@ -16,6 +16,9 @@ namespace AddressBookSystemLINQ
             addressBookManagement.EditContactFromDataTableUsingFirstName();
             //To delete a contact from the table
             addressBookManagement.DeleteContactFromDataTableUsingFirstName();
+            //To obtain contacts based on city or state
+            addressBookManagement.DisplayContactsBasedOnCityOrState();
+
         }
     }
 }

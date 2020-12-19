@@ -86,5 +86,26 @@ namespace AddressBookSystemLINQ
             }
             GetAllContactsFromDataTable();
         }
+
+        /// <summary>
+        /// to display contacts based on city or state
+        /// </summary>
+        public void DisplayContactsBasedOnCityOrState()
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine("Enter City : ");
+            string city = Console.ReadLine();
+            Console.WriteLine("Enter State : ");
+            string state = Console.ReadLine();
+            var Record = from record in addressBookTable.AsEnumerable()
+                         where record.Field<string>("City").Equals(city) || record.Field<string>("State").Equals(state)  
+                         select record;
+
+            foreach (var record in Record)
+            {
+                Console.WriteLine("FirstName :" + record.Field<string>("Firstname") +  "\tCity :" + record.Field<string>("City") +
+                    "\tState : " + record.Field<string>("State"));
+            }
+        }
     }
 }
