@@ -10,7 +10,7 @@ namespace AddressBookSystemLINQ
 
             AddressBookManagement addressBookManagement = new AddressBookManagement();
 
-            //To get all records from the table
+            /*//To get all records from the table
             addressBookManagement.GetAllContactsFromDataTable();
             //To edit a contact from the table
             addressBookManagement.EditContactFromDataTableUsingFirstName();
@@ -21,7 +21,8 @@ namespace AddressBookSystemLINQ
             //To obtain count of persons for a given city and state
             addressBookManagement.CountByCityAndState(); 
             //to sort the records alphabetically by first name for given city
-            addressBookManagement.SortTheRecordsByFirstNameForACity();
+            addressBookManagement.SortTheRecordsByFirstNameForACity();*/
+            addressBookManagement.CountByPersonType();
 
         }
     }

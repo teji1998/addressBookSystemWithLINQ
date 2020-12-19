@@ -167,5 +167,13 @@ namespace AddressBookSystemLINQ
                 }
             }
         }
+
+        public void CountByPersonType()
+        {
+            var data = from contact in addressBookTable.AsEnumerable()
+                          group contact by contact.Field<string>("PersonType") into record
+                          select new { PersonTypeName = record.Key, count = record.Count() };
+            data.ToList().ForEach(x => Console.WriteLine($"ContactType : {x.PersonTypeName}  \t Count = {x.count}"));
+        }
     }
 }
