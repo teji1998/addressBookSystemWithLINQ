@@ -16,7 +16,7 @@ namespace AddressBookSystemLINQ
             //Adding columns into data table
             DataColumn dataColumn = new DataColumn();
             dataColumn = new DataColumn();
-            dataColumn.DataType = typeof(Int32);
+            dataColumn.DataType = typeof(int);
             dataColumn.ColumnName = "PersonId";
             dataColumn.AutoIncrement = true;
             DataColumn[] PrimaryKeyColumns = new DataColumn[1];
@@ -55,6 +55,7 @@ namespace AddressBookSystemLINQ
             foreach (DataRow rowData in addressBookTable.AsEnumerable())
             {
                 Console.WriteLine("\n");
+                Console.WriteLine("PersonId : " + rowData.Field<int>("PersonId"));
                 Console.WriteLine("FirstName : " + rowData.Field<string>("FirstName"));
                 Console.WriteLine("LastName : " + rowData.Field<string>("LastName"));
                 Console.WriteLine("Address : " + rowData.Field<string>("Address"));
@@ -63,6 +64,7 @@ namespace AddressBookSystemLINQ
                 Console.WriteLine("Zip : " + rowData.Field<int>("Zip"));
                 Console.WriteLine("MobileNumber : " + rowData.Field<string>("MobileNumber"));
                 Console.WriteLine("EmailId : " + rowData.Field<string>("EmailId"));
+                Console.WriteLine("PersonType : " + rowData.Field<int>("PersonType"));
             }
         }
 
