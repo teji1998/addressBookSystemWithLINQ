@@ -168,6 +168,7 @@ namespace AddressBookSystemLINQ
             }
         }
 
+        ////To get count of person type
         public void CountByPersonType()
         {
             var data = from contact in addressBookTable.AsEnumerable()
