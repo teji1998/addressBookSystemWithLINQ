@@ -97,15 +97,33 @@ namespace AddressBookSystemLINQ
             string city = Console.ReadLine();
             Console.WriteLine("Enter State : ");
             string state = Console.ReadLine();
-            var Record = from record in addressBookTable.AsEnumerable()
+            var data = from record in addressBookTable.AsEnumerable()
                          where record.Field<string>("City").Equals(city) || record.Field<string>("State").Equals(state)  
                          select record;
 
-            foreach (var record in Record)
+            foreach (var record in data)
             {
                 Console.WriteLine("FirstName :" + record.Field<string>("Firstname") +  "\tCity :" + record.Field<string>("City") +
                     "\tState : " + record.Field<string>("State"));
             }
+        }
+
+        /// <summary>
+        /// Count of persons in a city and state
+        /// </summary>
+        public void CountByCityAndState()
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine("Enter City : ");
+            string city = Console.ReadLine();
+            Console.WriteLine("Enter State : ");
+            string state = Console.ReadLine();
+            var data = from record in addressBookTable.AsEnumerable()
+                         where record.Field<string>("City").Equals(city) && record.Field<string>("State").Equals(state)
+                         select record;
+            Console.WriteLine("Number of persons in a given city and state : " + data.Count());
+
+
         }
     }
 }
