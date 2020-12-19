@@ -14,6 +14,15 @@ namespace AddressBookSystemLINQ
         public AddressBookManagement()
         {
             //Adding columns into data table
+            DataColumn dataColumn = new DataColumn();
+            dataColumn = new DataColumn();
+            dataColumn.DataType = typeof(Int32);
+            dataColumn.ColumnName = "PersonId";
+            dataColumn.AutoIncrement = true;
+            DataColumn[] PrimaryKeyColumns = new DataColumn[1];
+            PrimaryKeyColumns[0] = addressBookTable.Columns["PersonID"];
+            addressBookTable.PrimaryKey = PrimaryKeyColumns;
+            addressBookTable.Columns.Add(dataColumn);
             addressBookTable.Columns.Add("FirstName", typeof(string));
             addressBookTable.Columns.Add("LastName", typeof(string));
             addressBookTable.Columns.Add("Address", typeof(string));
@@ -22,14 +31,19 @@ namespace AddressBookSystemLINQ
             addressBookTable.Columns.Add("Zip", typeof(int));
             addressBookTable.Columns.Add("MobileNumber", typeof(string));
             addressBookTable.Columns.Add("EmailId", typeof(string));
+            dataColumn = new DataColumn();
+            dataColumn.DataType = typeof(string);
+            dataColumn.ColumnName = "PersonType";
+            dataColumn.AllowDBNull = false;
+            addressBookTable.Columns.Add(dataColumn);
 
             //Inserting values into data table
-            addressBookTable.Rows.Add("Tejaswini", "Kulkarni", "Chembur", "Mumbai", "Maharashtra", 400071, "9920275347", "teju@gmail.com");
-            addressBookTable.Rows.Add("Sravani", "Sabbisetti", "Gandhinagar", "Hyderabad", "Telangana", 458000, "9927893400", "sravani_123@abc.com");
-            addressBookTable.Rows.Add("Bhagyalakshmi", "Reddy", "JPnagar", "Hyderabad", "Telangana", 580000, "8097456100", "bhagya123@yahoo.com");
-            addressBookTable.Rows.Add("Lee", "Minho", "Gangwon", "Seoul", "South Korea", 689768, "9765123000", "leemin123@kbs.com");
-            addressBookTable.Rows.Add("Abhimanyu", "Jagirdar", "Juhu", "Pune", "Maharashtra", 400098, "8904543432", "abhiJagi987@cms.com");
-            addressBookTable.Rows.Add("Jaydeep", "Patil", "Malleshwaram", "Pune", "Karnataka", 560789, "8097395111", "jay_patil@sm.com");
+            addressBookTable.Rows.Add(1,"Tejaswini", "Kulkarni", "Chembur", "Mumbai", "Maharashtra", 400071, "9920275347", "teju@gmail.com","Family");
+            addressBookTable.Rows.Add(2,"Sravani", "Sabbisetti", "Gandhinagar", "Hyderabad", "Telangana", 458000, "9927893400", "sravani_123@abc.com","Friend");
+            addressBookTable.Rows.Add(3,"Bhagyalakshmi", "Reddy", "JPnagar", "Hyderabad", "Telangana", 580000, "8097456100", "bhagya123@yahoo.com","Friend");
+            addressBookTable.Rows.Add(4,"Lee", "Minho", "Gangwon", "Seoul", "South Korea", 689768, "9765123000", "leemin123@kbs.com","Profession");
+            addressBookTable.Rows.Add(5,"Abhimanyu", "Jagirdar", "Juhu", "Pune", "Maharashtra", 400098, "8904543432", "abhiJagi987@cms.com","Family");
+            addressBookTable.Rows.Add(6,"Jaydeep", "Patil", "Malleshwaram", "Pune", "Karnataka", 560789, "8097395111", "jay_patil@sm.com", "Profession");
 
         }
 
