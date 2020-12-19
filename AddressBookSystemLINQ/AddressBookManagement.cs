@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace AddressBookSystemLINQ
@@ -32,6 +33,9 @@ namespace AddressBookSystemLINQ
 
         }
 
+        /// <summary>
+        /// To get all the records from the data table
+        /// </summary>
         public void GetAllContactsFromDataTable()
         {
             foreach (DataRow rowData in addressBookTable.AsEnumerable())
@@ -46,6 +50,25 @@ namespace AddressBookSystemLINQ
                 Console.WriteLine("MobileNumber : " + rowData.Field<string>("MobileNumber"));
                 Console.WriteLine("EmailId : " + rowData.Field<string>("EmailId"));
             }
+        }
+
+        /// <summary>
+        /// To edit a contact from data table using first name
+        /// </summary>
+        public void EditContactFromDataTableUsingFirstName()
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine("Please give the first name of the contact to be updated : ");
+            string firstName = Console.ReadLine();
+            Console.WriteLine("Please give the name of column in which you want to edit : ");
+            string columnFieldName = Console.ReadLine();
+            Console.WriteLine("Please give the value to be updated in the table : ");
+            string value = Console.ReadLine();
+            //FirstOrDefault gives first value or default value if no element matches
+            DataRow updatedContact = addressBookTable.Select("FirstName = '" + firstName + "'").FirstOrDefault(); 
+            updatedContact[columnFieldName] = value;
+            Console.WriteLine("The contact has been updated successfully !!!!");
+            GetAllContactsFromDataTable();
         }
     }
 }
