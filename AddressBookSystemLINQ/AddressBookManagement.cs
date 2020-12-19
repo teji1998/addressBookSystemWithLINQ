@@ -70,5 +70,21 @@ namespace AddressBookSystemLINQ
             Console.WriteLine("The contact has been updated successfully !!!!");
             GetAllContactsFromDataTable();
         }
+
+        /// <summary>
+        /// To delete a contact using first name
+        /// </summary>
+        public void DeleteContactFromDataTableUsingFirstName()
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine("Please enter the first name of the contact you want to delete : ");
+            string name = Console.ReadLine();
+            var records = addressBookTable.AsEnumerable().Where(data => data.Field<string>("FirstName") == name);
+            foreach ( var dataRows in records.ToList())
+            {
+                dataRows.Delete();
+            }
+            GetAllContactsFromDataTable();
+        }
     }
 }
