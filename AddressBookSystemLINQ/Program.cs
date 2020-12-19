@@ -20,6 +20,7 @@ namespace AddressBookSystemLINQ
             addressBookManagement.DisplayContactsBasedOnCityOrState();
             //To obtain count of persons for a given city and state
             addressBookManagement.CountByCityAndState(); 
+            //to sort the records alphabetically by first name for given city
             addressBookManagement.SortTheRecordsByFirstNameForACity();
 
         }

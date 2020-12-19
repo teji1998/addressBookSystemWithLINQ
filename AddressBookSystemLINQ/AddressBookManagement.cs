@@ -124,6 +124,9 @@ namespace AddressBookSystemLINQ
             Console.WriteLine("Number of persons in a given city and state : " + data.Count());
         }
 
+        /// <summary>
+        /// to sort the records alphabetically by first name for given city
+        /// </summary>
         public void SortTheRecordsByFirstNameForACity()
         {
             Console.WriteLine("\n");
@@ -131,6 +134,7 @@ namespace AddressBookSystemLINQ
             string city = Console.ReadLine();
             var data = from contact in addressBookTable.AsEnumerable()
                        where contact.Field<string>("City").Equals(city)
+                       orderby contact.Field<string>("FirstName")
                        select contact;
             foreach (DataRow rowData in data)
             {
