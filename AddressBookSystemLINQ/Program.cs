@@ -19,7 +19,8 @@ namespace AddressBookSystemLINQ
             //To obtain contacts based on city or state
             addressBookManagement.DisplayContactsBasedOnCityOrState();
             //To obtain count of persons for a given city and state
-            addressBookManagement.CountByCityAndState();   
+            addressBookManagement.CountByCityAndState(); 
+            addressBookManagement.SortTheRecordsByFirstNameForACity();
 
         }
     }

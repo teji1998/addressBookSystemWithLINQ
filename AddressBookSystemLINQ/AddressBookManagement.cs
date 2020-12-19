@@ -122,8 +122,30 @@ namespace AddressBookSystemLINQ
                          where record.Field<string>("City").Equals(city) && record.Field<string>("State").Equals(state)
                          select record;
             Console.WriteLine("Number of persons in a given city and state : " + data.Count());
+        }
 
-
+        public void SortTheRecordsByFirstNameForACity()
+        {
+            Console.WriteLine("\n");
+            Console.WriteLine("Enter City : ");
+            string city = Console.ReadLine();
+            var data = from contact in addressBookTable.AsEnumerable()
+                       where contact.Field<string>("City").Equals(city)
+                       select contact;
+            foreach (DataRow rowData in data)
+            {
+                {
+                    Console.WriteLine("\n");
+                    Console.WriteLine("FirstName : " + rowData.Field<string>("FirstName"));
+                    Console.WriteLine("LastName : " + rowData.Field<string>("LastName"));
+                    Console.WriteLine("Address : " + rowData.Field<string>("Address"));
+                    Console.WriteLine("City : " + rowData.Field<string>("City"));
+                    Console.WriteLine("State : " + rowData.Field<string>("State"));
+                    Console.WriteLine("Zip : " + rowData.Field<int>("Zip"));
+                    Console.WriteLine("MobileNumber : " + rowData.Field<string>("MobileNumber"));
+                    Console.WriteLine("EmailId : " + rowData.Field<string>("EmailId"));
+                }
+            }
         }
     }
 }
