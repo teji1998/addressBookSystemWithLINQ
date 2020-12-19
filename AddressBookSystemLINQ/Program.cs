@@ -7,6 +7,8 @@ namespace AddressBookSystemLINQ
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to address book problem using LINQ !!!!");
+            AddressBookManagement addressBookManagement = new AddressBookManagement();
+            addressBookManagement.GetAllContactsFromDataTable();
         }
     }
 }

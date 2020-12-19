@@ -31,5 +31,21 @@ namespace AddressBookSystemLINQ
             addressBookTable.Rows.Add("Jaydeep", "Patil", "Malleshwaram", "Pune", "Karnataka", 560789, "8097395111", "jay_patil@sm.com");
 
         }
+
+        public void GetAllContactsFromDataTable()
+        {
+            foreach (DataRow rowData in addressBookTable.AsEnumerable())
+            {
+                Console.WriteLine("\n");
+                Console.WriteLine("FirstName : " + rowData.Field<string>("FirstName"));
+                Console.WriteLine("LastName : " + rowData.Field<string>("LastName"));
+                Console.WriteLine("Address : " + rowData.Field<string>("Address"));
+                Console.WriteLine("City : " + rowData.Field<string>("City"));
+                Console.WriteLine("State : " + rowData.Field<string>("State"));
+                Console.WriteLine("Zip : " + rowData.Field<int>("Zip"));
+                Console.WriteLine("MobileNumber : " + rowData.Field<string>("MobileNumber"));
+                Console.WriteLine("EmailId : " + rowData.Field<string>("EmailId"));
+            }
+        }
     }
 }
