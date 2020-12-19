@@ -22,6 +22,7 @@ namespace AddressBookSystemLINQ
             addressBookTable.Columns.Add("MobileNumber", typeof(string));
             addressBookTable.Columns.Add("EmailId", typeof(string));
 
+            //Inserting values into data table
             addressBookTable.Rows.Add("Tejaswini", "Kulkarni", "Chembur", "Mumbai", "Maharashtra", 400071, "9920275347", "teju@gmail.com");
             addressBookTable.Rows.Add("Sravani", "Sabbisetti", "Gandhinagar", "Hyderabad", "Telangana", 458000, "9927893400", "sravani_123@abc.com");
             addressBookTable.Rows.Add("Bhagyalakshmi", "Reddy", "JPnagar", "Hyderabad", "Telangana", 580000, "8097456100", "bhagya123@yahoo.com");
